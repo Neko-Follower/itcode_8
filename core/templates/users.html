@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% block content %}
+    <h1>Список пользователей</h1>
+    <table>
+          <thead>
+          <tr>
+              <th>ID</th>
+              <th>Имя</th>
+          </tr>
+          </thead>
+          <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.pk }}</td>
+                    <td>{{ user.name }}</td>
+                    <td><a href="{% url 'core:user_detail' user.pk %}">Подробнее</a></td>
+                </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+{% endblock %}
